@@ -1,6 +1,7 @@
 package ca.cal.tp.persistence;
 
 import ca.cal.tp.model.Document.Abstract.Document;
+import ca.cal.tp.model.User.Member;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -40,5 +41,16 @@ public abstract class CommonDAOJPAH2 {
         em.close();
 
         return document;
+    }
+
+    public Member getMember(int id){
+        final EntityManager em = emf.createEntityManager();
+
+        em.getTransaction().begin();
+        final Member member = em.find(Member.class, id);
+        em.getTransaction().commit();
+        em.close();
+
+        return member;
     }
 }

@@ -24,6 +24,7 @@ public class MemberDAOJPAH2 extends CommonDAOJPAH2 implements MemberDAO {
         List<Book> books = query.getResultList();
         em.getTransaction().commit();
         em.close();
+
         return books;
     }
 
@@ -39,6 +40,7 @@ public class MemberDAOJPAH2 extends CommonDAOJPAH2 implements MemberDAO {
         List<Book> books = query.getResultList();
         em.getTransaction().commit();
         em.close();
+
         return books;
     }
 
@@ -54,6 +56,7 @@ public class MemberDAOJPAH2 extends CommonDAOJPAH2 implements MemberDAO {
         List<Book> books = query.getResultList();
         em.getTransaction().commit();
         em.close();
+
         return books;
     }
 
@@ -69,6 +72,8 @@ public class MemberDAOJPAH2 extends CommonDAOJPAH2 implements MemberDAO {
         List<Book> books = query.getResultList();
         em.getTransaction().commit();
         em.close();
+
         return books;
     }
+
 }
