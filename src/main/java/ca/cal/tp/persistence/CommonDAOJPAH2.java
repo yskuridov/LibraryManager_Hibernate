@@ -1,5 +1,7 @@
 package ca.cal.tp.persistence;
 
+import ca.cal.tp.model.Document.Abstract.Document;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -26,6 +28,10 @@ public abstract class CommonDAOJPAH2 {
 
         em.getTransaction().commit();
         em.close();
+
+    }
+
+    public Document getDocument(int id){
 
     }
 }
