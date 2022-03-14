@@ -32,6 +32,13 @@ public abstract class CommonDAOJPAH2 {
     }
 
     public Document getDocument(int id){
+        final EntityManager em = emf.createEntityManager();
 
+        em.getTransaction().begin();
+        final Document document = em.find(Document.class, id);
+        em.getTransaction().commit();
+        em.close();
+
+        return document;
     }
 }

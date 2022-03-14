@@ -19,11 +19,10 @@ public class Loan {
     private LocalDate dateBorrowed;
     private LocalDate dateDue;
 
-    //OneToOne with Member -- borrower
     @ManyToOne
     @JoinColumn(name = "MEMBER_id")
     private Member borrower;
-    //OneToMany with Document -- ArrayList<Documents>
+
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name="DOCUMENTS_id")
     private Document document;

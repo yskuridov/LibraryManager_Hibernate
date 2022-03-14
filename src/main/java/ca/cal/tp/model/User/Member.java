@@ -16,6 +16,7 @@ import java.util.List;
 @NoArgsConstructor
 public class Member extends User {
     double debt;
+
     @OneToMany(mappedBy = "borrower")
     @ToString.Exclude
     List<Loan> loanList = new ArrayList<>();
