@@ -4,9 +4,11 @@ import ca.cal.tp.model.Document.Abstract.Document;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
 @Entity
+@DiscriminatorValue("DVD")
 @Data
 @NoArgsConstructor
 public class Dvd extends Document {
