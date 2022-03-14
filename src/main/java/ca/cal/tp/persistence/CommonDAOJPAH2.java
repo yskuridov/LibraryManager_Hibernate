@@ -60,7 +60,7 @@ public abstract class CommonDAOJPAH2 {
         em.getTransaction().begin();
 
         final TypedQuery<Member> query = em.createQuery(
-                "select m from Member m left join fetch m.loanList pc where m.id = :id"
+                "select m from Member m left join fetch m.loanList ll where m.id = :id"
                 , Member.class);
         query.setParameter("id", id);
         final Member member = query.getSingleResult();
