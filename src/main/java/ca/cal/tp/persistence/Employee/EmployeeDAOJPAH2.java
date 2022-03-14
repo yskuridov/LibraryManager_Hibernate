@@ -1,6 +1,5 @@
 package ca.cal.tp.persistence.Employee;
 
-import ca.cal.tp.model.Document.Abstract.Document;
 import ca.cal.tp.model.Document.Book;
 import ca.cal.tp.model.Document.Cd;
 import ca.cal.tp.model.Document.Dvd;
@@ -11,7 +10,6 @@ import ca.cal.tp.persistence.CommonDAOJPAH2;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
-import java.time.LocalDate;
 
 public class EmployeeDAOJPAH2 extends CommonDAOJPAH2 implements EmployeeDAO {
     private EntityManagerFactory emf = Persistence.createEntityManagerFactory("tp");
@@ -28,18 +26,11 @@ public class EmployeeDAOJPAH2 extends CommonDAOJPAH2 implements EmployeeDAO {
         return loan;
     }
 
-    public int createNewMember(String firstName, String lastName, String address){
+    public int addNewMember(String firstName, String lastName, String address){
         final Member member = new Member(firstName, lastName, address);
         save(member);
 
         return member.getId();
-    }
-
-    public int createNewLoan(LocalDate dateBorrowed, LocalDate dateDue, Member borrower, Document document){
-        final Loan loan = new Loan(dateBorrowed, dateDue, borrower, document);
-        save(loan);
-
-        return loan.getId();
     }
 
     public int addBook(String title, int pYear, String language, String author, String editor, int pAmount, String genre) {
