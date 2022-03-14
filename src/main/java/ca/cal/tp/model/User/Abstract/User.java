@@ -6,7 +6,8 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 
 @Entity
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "user_type")
 @Data
 @NoArgsConstructor
 public abstract class User {
@@ -17,7 +18,7 @@ public abstract class User {
     private String lastName;
     private String address;
 
-    public User(int id, String firstName, String lastName, String address) {
+    public User(String firstName, String lastName, String address) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;

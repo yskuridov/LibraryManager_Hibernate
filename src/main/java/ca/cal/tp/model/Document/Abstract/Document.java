@@ -8,7 +8,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "DOCUMENTS")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name = "DOCUMENT_TYPE")
+@DiscriminatorColumn(name = "document_type")
 @Data
 @NoArgsConstructor
 public abstract class Document {
@@ -21,8 +21,7 @@ public abstract class Document {
     private int loanLength;
 
 
-    public Document(int id, String title, int publicationYear, String language) {
-        this.id = id;
+    public Document(String title, int publicationYear, String language) {
         this.title = title;
         this.publicationYear = publicationYear;
         this.language = language;

@@ -17,8 +17,8 @@ public class Dvd extends Document {
     private String mainActor;
     private static final int DVD_LOAN_LENGTH = 7; //days
 
-    public Dvd(int id, String title, int publicationYear, String language, int durationInMinutes, String category, String mainActor) {
-        super(id, title, publicationYear, language);
+    public Dvd(String title, int publicationYear, String language, int durationInMinutes, String category, String mainActor) {
+        super(title, publicationYear, language);
         this.durationInMinutes = durationInMinutes;
         this.category = category;
         this.mainActor = mainActor;

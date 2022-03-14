@@ -18,8 +18,8 @@ public class Book extends Document {
     private String genre;
     private static final int BOOK_LOAN_LENGTH = 21; //days
 
-    public Book(int id, String title, int publicationYear, String language, String author, String editor, int pageAmount, String genre) {
-        super(id, title, publicationYear, language);
+    public Book(String title, int publicationYear, String language, String author, String editor, int pageAmount, String genre) {
+        super(title, publicationYear, language);
         this.author = author;
         this.editor = editor;
         this.pageAmount = pageAmount;

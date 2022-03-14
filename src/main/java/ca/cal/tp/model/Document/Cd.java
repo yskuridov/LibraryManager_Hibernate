@@ -17,8 +17,8 @@ public class Cd extends Document {
     private String genre;
     private static final int CD_LOAN_LENGTH = 14; //days
 
-    public Cd(int id, String title, int publicationYear, String language, String singer, int numberOfTracks, String genre) {
-        super(id, title, publicationYear, language);
+    public Cd(String title, int publicationYear, String language, String singer, int numberOfTracks, String genre) {
+        super(title, publicationYear, language);
         this.singer = singer;
         this.numberOfTracks = numberOfTracks;
         this.genre = genre;

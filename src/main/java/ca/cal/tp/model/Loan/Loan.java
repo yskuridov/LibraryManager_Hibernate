@@ -7,8 +7,6 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
 @Table(name = "LOANS")
@@ -30,4 +28,10 @@ public class Loan {
     @JoinColumn(name="DOCUMENTS_id")
     private Document document;
 
+    public Loan(LocalDate dateBorrowed, LocalDate dateDue, Member borrower, Document document) {
+        this.dateBorrowed = dateBorrowed;
+        this.dateDue = dateDue;
+        this.borrower = borrower;
+        this.document = document;
+    }
 }
