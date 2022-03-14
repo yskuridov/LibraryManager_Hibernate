@@ -2,7 +2,6 @@ package ca.cal.tp.persistence.Member;
 
 import ca.cal.tp.model.Document.Abstract.Document;
 import ca.cal.tp.model.Document.Book;
-import ca.cal.tp.model.Loan.Loan;
 import ca.cal.tp.model.User.Member;
 
 import java.util.List;
