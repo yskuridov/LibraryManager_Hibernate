@@ -1,6 +1,7 @@
 package ca.cal.tp.persistence.Member;
 
 import ca.cal.tp.model.Document.Book;
+import ca.cal.tp.model.User.Member;
 import ca.cal.tp.persistence.CommonDAOJPAH2;
 
 import javax.persistence.EntityManager;
@@ -10,7 +11,7 @@ import javax.persistence.TypedQuery;
 import java.util.List;
 
 public class MemberDAOJPAH2 extends CommonDAOJPAH2 implements MemberDAO {
-    private EntityManagerFactory emf = Persistence.createEntityManagerFactory("tp");
+    private final EntityManagerFactory emf = Persistence.createEntityManagerFactory("tp");
 
     public List<Book> getBooksByTitle(String title){
         final EntityManager em = emf.createEntityManager();

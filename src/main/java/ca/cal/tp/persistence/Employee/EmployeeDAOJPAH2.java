@@ -12,19 +12,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
 public class EmployeeDAOJPAH2 extends CommonDAOJPAH2 implements EmployeeDAO {
-    private EntityManagerFactory emf = Persistence.createEntityManagerFactory("tp");
-
-
-    public Loan getLoan(int id){
-        final EntityManager em = emf.createEntityManager();
-
-        em.getTransaction().begin();
-        final Loan loan = em.find(Loan.class, id);
-        em.getTransaction().commit();
-        em.close();
-
-        return loan;
-    }
+    private final EntityManagerFactory emf = Persistence.createEntityManagerFactory("tp");
 
     public int addNewMember(String firstName, String lastName, String address){
         final Member member = new Member(firstName, lastName, address);
@@ -53,4 +41,5 @@ public class EmployeeDAOJPAH2 extends CommonDAOJPAH2 implements EmployeeDAO {
 
         return dvd.getId();
     }
+
 }

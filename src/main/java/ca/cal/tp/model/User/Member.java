@@ -11,11 +11,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
+@Table(name = "MEMBERS")
 @DiscriminatorValue("MEMBER")
 @Data
 @NoArgsConstructor
 public class Member extends User {
-    double debt;
+    double debt = 0.00;
 
     @OneToMany(mappedBy = "borrower")
     @ToString.Exclude
@@ -24,4 +25,5 @@ public class Member extends User {
     public Member(String firstName, String lastName, String address) {
         super(firstName, lastName, address);
     }
+
 }

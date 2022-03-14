@@ -6,9 +6,10 @@ import ca.cal.tp.model.User.Member;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.TypedQuery;
 
 public abstract class CommonDAOJPAH2 {
-    private EntityManagerFactory emf = Persistence.createEntityManagerFactory("tp");
+    private final EntityManagerFactory emf = Persistence.createEntityManagerFactory("tp");
 
     public <T> void save(T t) {
         final EntityManager em = emf.createEntityManager();
@@ -51,6 +52,21 @@ public abstract class CommonDAOJPAH2 {
         em.getTransaction().commit();
         em.close();
 
+        return member;
+    }
+
+    public Member getMemberWithLoans(int id){
+        final EntityManager em = emf.createEntityManager();
+        em.getTransaction().begin();
+
+        final TypedQuery<Member> query = em.createQuery(
+                "select m from Member m left join fetch m.loanList pc where m.id = :id"
+                , Member.class);
+        query.setParameter("id", id);
+        final Member member = query.getSingleResult();
+
+        em.getTransaction().commit();
+        em.close();
         return member;
     }
 }

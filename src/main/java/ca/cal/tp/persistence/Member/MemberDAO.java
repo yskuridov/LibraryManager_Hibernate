@@ -11,6 +11,7 @@ public interface MemberDAO {
     <T> void merge(T t);
     Document getDocument(int id);
     Member getMember(int id);
+    Member getMemberWithLoans(int id);
     List<Book> getBooksByTitle(String title);
     List<Book> getBooksByAuthor(String author);
     List<Book> getBooksByYear(int year);

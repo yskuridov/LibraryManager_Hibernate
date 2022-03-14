@@ -13,8 +13,15 @@ public class MemberService {
         this.dao = dao;
     }
 
+    public void getDatesOfReturn(int memberId){
+        List<Loan> loanList = dao.getMemberWithLoans(memberId).getLoanList();
+        for(Loan l : loanList){
+            System.out.println("Document: " + l.getDocument().getTitle() + "to be returned on " + l.getDateDue().toString());
+        }
+    }
+
     public List<Loan> getLoans(int id){
-        return dao.getMember(id).getLoanList();
+        return dao.getMemberWithLoans(id).getLoanList();
     }
 
     public List<Book> getBooksByTitle(String title){
